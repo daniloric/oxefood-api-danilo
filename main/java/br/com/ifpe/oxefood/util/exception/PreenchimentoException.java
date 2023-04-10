@@ -20,4 +20,3 @@ public class PreenchimentoException extends RuntimeException {
     }
 
 }
-
