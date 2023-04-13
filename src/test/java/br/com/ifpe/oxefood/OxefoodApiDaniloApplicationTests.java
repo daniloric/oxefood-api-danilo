@@ -1,10 +1,10 @@
-package br.com.ifpe.oxefoodapidanilo;
+package br.com.ifpe.oxefood;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OxefoodApiDaniloApplicationTests {
+class OxefoodApiDavisonApplicationTests {
 
 	@Test
 	void contextLoads() {
