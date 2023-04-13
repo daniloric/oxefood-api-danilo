@@ -26,6 +26,25 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Cliente extends EntidadeAuditavel  {
 
+
+   @Column
+   private long id;
+
+   @Column
+   private Boolean versao;
+
+   @Column
+   private LocalDate dataCriacao;
+
+   @Column
+   private LocalDate dataUltimaModificacao;
+
+   @Column
+   private Long criadoPor;
+
+   @Column
+   private Long ultimaModificacaoPor;
+
    @Column
    private String nome;
 
