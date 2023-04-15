@@ -1,4 +1,4 @@
-package br.com.ifpe.oxefood.api.cliente;
+package br.com.ifpe.oxefood.modelo.cliente;
 
 import javax.transaction.Transactional;
 

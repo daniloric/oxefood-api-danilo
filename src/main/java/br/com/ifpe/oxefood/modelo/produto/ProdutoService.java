@@ -1,4 +1,4 @@
-package br.com.ifpe.oxefood.api.Produto;
+package br.com.ifpe.oxefood.modelo.produto;
 
 import javax.transaction.Transactional;
 
@@ -21,4 +21,3 @@ public class ProdutoService extends GenericService {
    }
 
 }
-

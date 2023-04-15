@@ -1,4 +1,4 @@
-package br.com.ifpe.oxefood.api.Entregador;
+package br.com.ifpe.oxefood.api.entregador;
 
 import javax.validation.Valid;
 
@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.ifpe.oxefood.modelo.entregador.Entregador;
+import br.com.ifpe.oxefood.modelo.entregador.EntregadorService;
 import br.com.ifpe.oxefood.util.entity.GenericController;
 
 @RestController
@@ -22,9 +24,7 @@ public class EntregadorController extends GenericController {
    @PostMapping
    public ResponseEntity<Entregador> save(@RequestBody @Valid EntregadorRequest request) {
 
-    Entregador entregador = entregadorService.save(request.build());
+       Entregador entregador = entregadorService.save(request.build());
        return new ResponseEntity<Entregador>(entregador, HttpStatus.CREATED);
    }
 }
-
-
