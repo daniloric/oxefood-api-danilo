@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 import br.com.ifpe.oxefood.util.entity.GenericService;
 
 @Service
-public class EntregadorService extends GenericService {
+public class EntregadorService extends GenericService{
 
-   @Autowired
-   private EntregadorRepository repository;
+    @Autowired
+    private EntregadorRepository repository;
 
-   @Transactional
-   public Entregador save(Entregador entregador) {
+    @Transactional
+    public Entregador save(Entregador entregador) {
 
        super.preencherCamposAuditoria(entregador);
        return repository.save(entregador);

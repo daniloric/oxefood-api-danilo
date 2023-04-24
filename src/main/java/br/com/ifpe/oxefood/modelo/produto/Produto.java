@@ -16,6 +16,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "Produto")
 @Where(clause = "habilitado = true")
+
 @Builder
 @Getter
 @Setter

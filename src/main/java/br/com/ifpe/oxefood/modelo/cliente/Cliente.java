@@ -18,6 +18,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "Cliente")
 @Where(clause = "habilitado = true")
+
 @Builder
 @Getter
 @Setter
@@ -36,9 +37,9 @@ public class Cliente extends EntidadeAuditavel  {
 
    @Column
    private String foneCelular;
-
+   
    @Column
    private String foneFixo;
 
+   
 }
-
