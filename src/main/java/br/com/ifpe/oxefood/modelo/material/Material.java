@@ -1,4 +1,6 @@
-package br.com.ifpe.oxefood.modelo.produto;
+package br.com.ifpe.oxefood.modelo.material;
+
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,31 +16,31 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Produto")
+@Table(name = "Cliente")
 @Where(clause = "habilitado = true")
+
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Produto extends EntidadeAuditavel  {
+public class Material extends EntidadeAuditavel {
+    
+    @Column
+    private String titulo;
+ 
+    @Column
+    private Double valor;
 
-   @Column
-   private String codigo;
+    @Column
+    private String resposavel;
 
-   @Column
-   private String titulo;
+    @Column
+    private String localizacao;
 
-   @Column
-   private String descricao;
+    @Column
+    private Double peso;
 
-   @Column
-   private Double valorUnitario;
-
-   @Column
-   private Integer tempoEntregaMinimo;
-
-   @Column
-   private Integer tempoEntregaMaximo;
-
+    @Column
+    private LocalDate dataAquisicao;
 }
