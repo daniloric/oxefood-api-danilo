@@ -2,6 +2,8 @@ package br.com.ifpe.oxefood.api.material;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.ifpe.oxefood.modelo.material.Material;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,18 +15,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MaterialRequest {
-    
-
     private String titulo;
- 
+
     private Double valor;
 
-    private String resposavel;
+    private String responsavel;
 
     private String localizacao;
 
     private Double peso;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAquisicao;
  
     public Material build() {
@@ -32,7 +33,7 @@ public class MaterialRequest {
         return Material.builder()
                 .titulo(titulo) 
                 .valor(valor)
-                .resposavel(resposavel)
+                .responsavel(responsavel)
                 .localizacao(localizacao)
                 .peso(peso)
                 .dataAquisicao(dataAquisicao)

@@ -1,4 +1,4 @@
-package br.com.ifpe.oxefood.modelo.material;
+package br.com.ifpe.oxefood.modelo.cupomDesconto;
 
 import java.time.LocalDate;
 
@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Material")
+@Table(name = "CupomDesconto")
 @Where(clause = "habilitado = true")
 
 @Builder
@@ -24,25 +24,26 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Material extends EntidadeAuditavel {
+public class CupomDesconto extends EntidadeAuditavel{
     @Column
-    private String titulo;
+    private String codigoDesconto;
 
     @Column
-    private Double valor;
+    private Double percentualDesconto;
 
     @Column
-    private String responsavel;
+    private Double valorDesconto;
 
     @Column
-    private String localizacao;
+    private Double valorMinimoPedidoPermitido;
 
     @Column
-    private Double peso;
+    private Integer quantidadeMaximaUso;
 
     @Column
-    private LocalDate dataAquisicao;
+    private LocalDate inicioVigencia;
+
+    @Column
+    private LocalDate fimVigencia;
 
 }
-
-

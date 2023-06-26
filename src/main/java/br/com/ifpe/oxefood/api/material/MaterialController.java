@@ -18,19 +18,22 @@ import br.com.ifpe.oxefood.modelo.material.Material;
 import br.com.ifpe.oxefood.modelo.material.MaterialService;
 import br.com.ifpe.oxefood.util.entity.GenericController;
 
+
 @RestController
-@RequestMapping("/api/cliente")
-public class MaterialController extends GenericController {
+@RequestMapping("/api/material")
+public class MaterialController extends GenericController{
 
-   @Autowired
-   private MaterialService materialService;
+    @Autowired
+    private MaterialService materialService;
 
-   @PostMapping
-   public ResponseEntity<Material> save(@RequestBody @Valid MaterialRequest request) {
+    @PostMapping
+    public ResponseEntity<Material> save(@RequestBody @Valid MaterialRequest request) {
 
     Material material = materialService.save(request.build());
        return new ResponseEntity<Material>(material, HttpStatus.CREATED);
    }
+
+
    @GetMapping
    public List<Material> listarTodos() {
   
@@ -44,4 +47,3 @@ public class MaterialController extends GenericController {
    }
 
 }
-
