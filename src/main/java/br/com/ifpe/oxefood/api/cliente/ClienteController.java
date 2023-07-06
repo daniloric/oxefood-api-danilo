@@ -35,8 +35,12 @@ public class ClienteController extends GenericController {
     @PostMapping
     public ResponseEntity<Cliente> save(@RequestBody @Valid ClienteRequest request) {
 
-        Cliente cliente = clienteService.save(request.build());
-        return new ResponseEntity<Cliente>(cliente, HttpStatus.CREATED);
+        Cliente clienteRequisicao = request.build();
+        StringBuilder erros = new StringBuilder();
+
+
+        Cliente clienteSalvo = clienteService.save(clienteRequisicao);
+        return new ResponseEntity<Cliente>(clienteSalvo, HttpStatus.CREATED);
     }
 
     @ApiOperation(value = "Serviço responsável por listar todos os clientes do sistema.")
@@ -47,14 +51,13 @@ public class ClienteController extends GenericController {
     }
 
     @ApiOperation(value = "Serviço responsável por obter um cliente referente ao Id passado na URL.")
-        @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "Retorna  o cliente."),
-        @ApiResponse(code = 401, message = "Acesso não autorizado."),
-        @ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso."),
-        @ApiResponse(code = 404, message = "Não foi encontrado um registro para o Id informado."),
-        @ApiResponse(code = 500, message = "Foi gerado um erro no servidor."),
-   })
-
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retorna  o cliente."),
+            @ApiResponse(code = 401, message = "Acesso não autorizado."),
+            @ApiResponse(code = 403, message = "Você não tem permissão para acessar este recurso."),
+            @ApiResponse(code = 404, message = "Não foi encontrado um registro para o Id informado."),
+            @ApiResponse(code = 500, message = "Foi gerado um erro no servidor."),
+    })
 
     @GetMapping("/{id}")
     public Cliente obterPorID(@PathVariable Long id) {
@@ -75,9 +78,6 @@ public class ClienteController extends GenericController {
         clienteService.delete(id);
         return ResponseEntity.ok().build();
     }
-
-
-    
 
     @PostMapping("/endereco/{clienteId}")
     public ResponseEntity<EnderecoCliente> adicionarEnderecoCliente(@PathVariable("clienteId") Long clienteId,
